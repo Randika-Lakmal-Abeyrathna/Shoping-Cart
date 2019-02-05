@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2017 6:37:41 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOs.SystemDate" table="system_date" catalog="web_viva">
+        <id name="idsystemDate" type="java.lang.Integer">
+            <column name="idsystem_date" />
+            <generator class="identity" />
+        </id>
+        <property name="sysDate" type="date">
+            <column name="sys_date" length="10" />
+        </property>
+        <set name="suppliers" table="supplier" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="system_date_idsystem_date" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.Supplier" />
+        </set>
+        <set name="cartDetailses" table="cart_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="system_date_idsystem_date" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.CartDetails" />
+        </set>
+        <set name="products" table="product" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="system_date_idsystem_date" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.Product" />
+        </set>
+        <set name="customers" table="customer" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="system_date_idsystem_date" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.Customer" />
+        </set>
+        <set name="invoices" table="invoice" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="system_date_idsystem_date" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.Invoice" />
+        </set>
+        <set name="customerFeedbacks" table="customer_feedback" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="system_date_idsystem_date" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.CustomerFeedback" />
+        </set>
+        <set name="watchLists" table="watch_list" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="system_date_idsystem_date" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.WatchList" />
+        </set>
+        <set name="productHasCartDetailses" table="product_has_cart_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="system_date_idsystem_date" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.ProductHasCartDetails" />
+        </set>
+    </class>
+</hibernate-mapping>

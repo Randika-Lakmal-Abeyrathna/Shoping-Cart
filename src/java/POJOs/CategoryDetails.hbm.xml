@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2017 6:37:41 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOs.CategoryDetails" table="category_details" catalog="web_viva">
+        <id name="idcategoryDetails" type="java.lang.Integer">
+            <column name="idcategory_details" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="subCategory" class="POJOs.SubCategory" fetch="select">
+            <column name="sub_category_idsub_category" not-null="true" />
+        </many-to-one>
+        <many-to-one name="topCategory" class="POJOs.TopCategory" fetch="select">
+            <column name="top_category_idtop_category" />
+        </many-to-one>
+        <many-to-one name="product" class="POJOs.Product" fetch="select">
+            <column name="product_idproduct" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

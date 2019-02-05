@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2017 6:37:41 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOs.Deliver" table="deliver" catalog="web_viva">
+        <id name="iddeliver" type="java.lang.Integer">
+            <column name="iddeliver" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="deliverStatus" class="POJOs.DeliverStatus" fetch="select">
+            <column name="deliver_status_iddeliver_status" not-null="true" />
+        </many-to-one>
+        <many-to-one name="invoice" class="POJOs.Invoice" fetch="select">
+            <column name="invoice_idinvoice" not-null="true" />
+        </many-to-one>
+        <property name="firstName" type="string">
+            <column name="first_name" length="45" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="last_name" length="45" />
+        </property>
+        <property name="addressNo" type="string">
+            <column name="address_no" length="25" />
+        </property>
+        <property name="addressStreet" type="string">
+            <column name="address_street" length="50" />
+        </property>
+        <property name="addressStreet2" type="string">
+            <column name="address_street2" length="50" />
+        </property>
+        <property name="contactNumber" type="java.lang.Integer">
+            <column name="contact_number" />
+        </property>
+        <property name="contactNumber2" type="java.lang.Integer">
+            <column name="contact_number2" />
+        </property>
+        <property name="city" type="string">
+            <column name="city" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

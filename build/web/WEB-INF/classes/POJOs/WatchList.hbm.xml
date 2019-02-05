@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2017 6:37:41 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOs.WatchList" table="watch_list" catalog="web_viva">
+        <id name="idwatchList" type="java.lang.Integer">
+            <column name="idwatch_list" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="systemDate" class="POJOs.SystemDate" fetch="select">
+            <column name="system_date_idsystem_date" not-null="true" />
+        </many-to-one>
+        <many-to-one name="customer" class="POJOs.Customer" fetch="select">
+            <column name="customer_email" length="100" not-null="true" />
+        </many-to-one>
+        <many-to-one name="product" class="POJOs.Product" fetch="select">
+            <column name="product_idproduct" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

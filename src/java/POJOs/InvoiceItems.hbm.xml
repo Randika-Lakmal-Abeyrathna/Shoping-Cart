@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2017 6:37:41 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOs.InvoiceItems" table="invoice_items" catalog="web_viva">
+        <id name="idinvoiceItems" type="java.lang.Integer">
+            <column name="idinvoice_items" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="invoice" class="POJOs.Invoice" fetch="select">
+            <column name="invoice_idinvoice" not-null="true" />
+        </many-to-one>
+        <many-to-one name="product" class="POJOs.Product" fetch="select">
+            <column name="product_idproduct" not-null="true" />
+        </many-to-one>
+        <property name="amount" type="java.lang.Double">
+            <column name="amount" precision="22" scale="0" />
+        </property>
+        <property name="qty" type="java.lang.Integer">
+            <column name="qty" />
+        </property>
+        <property name="price" type="java.lang.Double">
+            <column name="price" precision="22" scale="0" />
+        </property>
+        <property name="sellierProfit" type="java.lang.Double">
+            <column name="sellier_profit" precision="22" scale="0" />
+        </property>
+        <property name="profit" type="java.lang.Double">
+            <column name="profit" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

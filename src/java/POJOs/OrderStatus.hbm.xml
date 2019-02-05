@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2017 6:37:41 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOs.OrderStatus" table="order_status" catalog="web_viva">
+        <id name="idorderStatus" type="java.lang.Integer">
+            <column name="idorder_status" />
+            <generator class="identity" />
+        </id>
+        <property name="orderStatus" type="string">
+            <column name="order_status" length="25" />
+        </property>
+        <set name="orderses" table="orders" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="order_status_idorder_status" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.Orders" />
+        </set>
+    </class>
+</hibernate-mapping>

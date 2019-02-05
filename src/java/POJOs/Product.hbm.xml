@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2017 6:37:41 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOs.Product" table="product" catalog="web_viva">
+        <id name="idproduct" type="java.lang.Integer">
+            <column name="idproduct" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="productStatus" class="POJOs.ProductStatus" fetch="select">
+            <column name="product_status_idproduct_status" not-null="true" />
+        </many-to-one>
+        <many-to-one name="systemDate" class="POJOs.SystemDate" fetch="select">
+            <column name="system_date_idsystem_date" not-null="true" />
+        </many-to-one>
+        <many-to-one name="supplier" class="POJOs.Supplier" fetch="select">
+            <column name="supplier_email" length="100" not-null="true" />
+        </many-to-one>
+        <property name="productName" type="string">
+            <column name="product_name" length="50" />
+        </property>
+        <property name="qty" type="java.lang.Integer">
+            <column name="qty" />
+        </property>
+        <property name="price" type="java.lang.Double">
+            <column name="price" precision="22" scale="0" />
+        </property>
+        <property name="sellingPrice" type="java.lang.Double">
+            <column name="selling_price" precision="22" scale="0" />
+        </property>
+        <property name="exDate" type="date">
+            <column name="ex_date" length="10" />
+        </property>
+        <property name="MDate" type="date">
+            <column name="m_date" length="10" />
+        </property>
+        <property name="deiscription" type="string">
+            <column name="deiscription" />
+        </property>
+        <property name="sold" type="java.lang.Integer">
+            <column name="sold" />
+        </property>
+        <set name="invoiceItemses" table="invoice_items" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="product_idproduct" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.InvoiceItems" />
+        </set>
+        <set name="categoryDetailses" table="category_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="product_idproduct" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.CategoryDetails" />
+        </set>
+        <set name="watchLists" table="watch_list" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="product_idproduct" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.WatchList" />
+        </set>
+        <set name="savedItemses" table="saved_items" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="product_idproduct" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.SavedItems" />
+        </set>
+        <set name="productImages" table="product_image" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="product_idproduct" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.ProductImage" />
+        </set>
+        <set name="productHasCartDetailses" table="product_has_cart_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="product_idproduct" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.ProductHasCartDetails" />
+        </set>
+    </class>
+</hibernate-mapping>

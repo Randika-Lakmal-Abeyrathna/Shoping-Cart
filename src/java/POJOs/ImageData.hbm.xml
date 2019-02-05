@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2017 6:37:41 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOs.ImageData" table="image_data" catalog="web_viva">
+        <id name="idimageData" type="java.lang.Integer">
+            <column name="idimage_data" />
+            <generator class="identity" />
+        </id>
+        <property name="path" type="string">
+            <column name="path" />
+        </property>
+        <set name="suppliers" table="supplier" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="image_data_idimage_data" />
+            </key>
+            <one-to-many class="POJOs.Supplier" />
+        </set>
+        <set name="customers" table="customer" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="image_data_idimage_data" />
+            </key>
+            <one-to-many class="POJOs.Customer" />
+        </set>
+    </class>
+</hibernate-mapping>

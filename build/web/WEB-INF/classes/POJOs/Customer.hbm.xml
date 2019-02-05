@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2017 6:37:41 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOs.Customer" table="customer" catalog="web_viva">
+        <id name="email" type="string">
+            <column name="email" length="100" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="systemDate" class="POJOs.SystemDate" fetch="select">
+            <column name="system_date_idsystem_date" not-null="true" />
+        </many-to-one>
+        <many-to-one name="userType" class="POJOs.UserType" fetch="select">
+            <column name="user_type_iduser_type" not-null="true" />
+        </many-to-one>
+        <many-to-one name="status" class="POJOs.Status" fetch="select">
+            <column name="status_idstatus" not-null="true" />
+        </many-to-one>
+        <many-to-one name="imageData" class="POJOs.ImageData" fetch="select">
+            <column name="image_data_idimage_data" />
+        </many-to-one>
+        <many-to-one name="city" class="POJOs.City" fetch="select">
+            <column name="city_idcity" not-null="true" />
+        </many-to-one>
+        <many-to-one name="gender" class="POJOs.Gender" fetch="select">
+            <column name="gender_idgender" not-null="true" />
+        </many-to-one>
+        <many-to-one name="salutation" class="POJOs.Salutation" fetch="select">
+            <column name="salutation_idsalutation" not-null="true" />
+        </many-to-one>
+        <property name="firstName" type="string">
+            <column name="first_name" length="40" />
+        </property>
+        <property name="middleName" type="string">
+            <column name="middle_name" length="40" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="last_name" length="40" />
+        </property>
+        <property name="addressNo" type="string">
+            <column name="address_no" length="25" />
+        </property>
+        <property name="addressStreet" type="string">
+            <column name="address_street" length="75" />
+        </property>
+        <property name="addressStreet2" type="string">
+            <column name="address_street2" length="75" />
+        </property>
+        <property name="nicNumber" type="string">
+            <column name="nic_number" length="17" />
+        </property>
+        <property name="dateOfBirth" type="date">
+            <column name="date_of_birth" length="10" />
+        </property>
+        <property name="contactNumber1" type="java.lang.Integer">
+            <column name="contact_number1" />
+        </property>
+        <property name="contactNumber2" type="java.lang.Integer">
+            <column name="contact_number2" />
+        </property>
+        <set name="savedItemses" table="saved_items" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customer_email" length="100" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.SavedItems" />
+        </set>
+        <set name="customerFeedbacks" table="customer_feedback" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customer_email" length="100" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.CustomerFeedback" />
+        </set>
+        <set name="ratings" table="rating" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customer_email" length="100" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.Rating" />
+        </set>
+        <set name="orderses" table="orders" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customer_email" length="100" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.Orders" />
+        </set>
+        <set name="customerLogins" table="customer_login" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customer_email" length="100" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.CustomerLogin" />
+        </set>
+        <set name="invoices" table="invoice" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customer_email" length="100" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.Invoice" />
+        </set>
+        <set name="customerRecovers" table="customer_recover" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customer_email" length="100" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.CustomerRecover" />
+        </set>
+        <set name="customerBlacklists" table="customer_blacklist" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customer_email" length="100" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.CustomerBlacklist" />
+        </set>
+        <set name="watchLists" table="watch_list" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customer_email" length="100" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.WatchList" />
+        </set>
+        <set name="cartDetailses" table="cart_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customer_email" length="100" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.CartDetails" />
+        </set>
+        <set name="supplierFeedbacks" table="supplier_feedback" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customer_email" length="100" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.SupplierFeedback" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3307/web_viva?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">1234</property>
+    <mapping resource="POJOs/Gender.hbm.xml"/>
+    <mapping resource="POJOs/CategoryDetails.hbm.xml"/>
+    <mapping resource="POJOs/SystemDate.hbm.xml"/>
+    <mapping resource="POJOs/UserType.hbm.xml"/>
+    <mapping resource="POJOs/SavedItems.hbm.xml"/>
+    <mapping resource="POJOs/SupplierLogin.hbm.xml"/>
+    <mapping resource="POJOs/SupplierFeedback.hbm.xml"/>
+    <mapping resource="POJOs/ShipingDetails.hbm.xml"/>
+    <mapping resource="POJOs/WatchList.hbm.xml"/>
+    <mapping resource="POJOs/Rating.hbm.xml"/>
+    <mapping resource="POJOs/Status.hbm.xml"/>
+    <mapping resource="POJOs/ProductStatus.hbm.xml"/>
+    <mapping resource="POJOs/CustomerFeedback.hbm.xml"/>
+    <mapping resource="POJOs/ProductImage.hbm.xml"/>
+    <mapping resource="POJOs/CustomerLogin.hbm.xml"/>
+    <mapping resource="POJOs/TopCategory.hbm.xml"/>
+    <mapping resource="POJOs/AdminDetails.hbm.xml"/>
+    <mapping resource="POJOs/Product.hbm.xml"/>
+    <mapping resource="POJOs/CartDetails.hbm.xml"/>
+    <mapping resource="POJOs/InvoiceItems.hbm.xml"/>
+    <mapping resource="POJOs/OrderStatus.hbm.xml"/>
+    <mapping resource="POJOs/Invoice.hbm.xml"/>
+    <mapping resource="POJOs/DeliverStatus.hbm.xml"/>
+    <mapping resource="POJOs/ProductHasCartDetails.hbm.xml"/>
+    <mapping resource="POJOs/SupplierRecover.hbm.xml"/>
+    <mapping resource="POJOs/CustomerBlacklist.hbm.xml"/>
+    <mapping resource="POJOs/Salutation.hbm.xml"/>
+    <mapping resource="POJOs/CommisionRate.hbm.xml"/>
+    <mapping resource="POJOs/OrderImages.hbm.xml"/>
+    <mapping resource="POJOs/City.hbm.xml"/>
+    <mapping resource="POJOs/SupplierBlacklist.hbm.xml"/>
+    <mapping resource="POJOs/Deliver.hbm.xml"/>
+    <mapping resource="POJOs/Supplier.hbm.xml"/>
+    <mapping resource="POJOs/Customer.hbm.xml"/>
+    <mapping resource="POJOs/CustomerRecover.hbm.xml"/>
+    <mapping resource="POJOs/Orders.hbm.xml"/>
+    <mapping resource="POJOs/ImageData.hbm.xml"/>
+    <mapping resource="POJOs/SubCategory.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

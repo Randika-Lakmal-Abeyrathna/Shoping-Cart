@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="web_viva"/>
+  <table-filter match-name="rating"/>
+  <table-filter match-name="customer"/>
+  <table-filter match-name="supplier"/>
+  <table-filter match-name="category_details"/>
+  <table-filter match-name="gender"/>
+  <table-filter match-name="admin_details"/>
+  <table-filter match-name="supplier_recover"/>
+  <table-filter match-name="product_image"/>
+  <table-filter match-name="deliver"/>
+  <table-filter match-name="customer_feedback"/>
+  <table-filter match-name="invoice_items"/>
+  <table-filter match-name="salutation"/>
+  <table-filter match-name="supplier_feedback"/>
+  <table-filter match-name="cart_details"/>
+  <table-filter match-name="customer_recover"/>
+  <table-filter match-name="supplier_login"/>
+  <table-filter match-name="orders"/>
+  <table-filter match-name="supplier_blacklist"/>
+  <table-filter match-name="top_category"/>
+  <table-filter match-name="product_has_cart_details"/>
+  <table-filter match-name="system_date"/>
+  <table-filter match-name="commision_rate"/>
+  <table-filter match-name="customer_blacklist"/>
+  <table-filter match-name="sub_category"/>
+  <table-filter match-name="order_status"/>
+  <table-filter match-name="customer_login"/>
+  <table-filter match-name="product_status"/>
+  <table-filter match-name="shiping_details"/>
+  <table-filter match-name="invoice"/>
+  <table-filter match-name="saved_items"/>
+  <table-filter match-name="status"/>
+  <table-filter match-name="order_images"/>
+  <table-filter match-name="product"/>
+  <table-filter match-name="city"/>
+  <table-filter match-name="image_data"/>
+  <table-filter match-name="user_type"/>
+  <table-filter match-name="watch_list"/>
+  <table-filter match-name="deliver_status"/>
+</hibernate-reverse-engineering>

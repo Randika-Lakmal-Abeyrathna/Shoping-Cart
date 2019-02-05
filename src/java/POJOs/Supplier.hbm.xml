@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2017 6:37:41 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOs.Supplier" table="supplier" catalog="web_viva">
+        <id name="email" type="string">
+            <column name="email" length="100" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="systemDate" class="POJOs.SystemDate" fetch="select">
+            <column name="system_date_idsystem_date" not-null="true" />
+        </many-to-one>
+        <many-to-one name="userType" class="POJOs.UserType" fetch="select">
+            <column name="user_type_iduser_type" not-null="true" />
+        </many-to-one>
+        <many-to-one name="status" class="POJOs.Status" fetch="select">
+            <column name="status_idstatus" not-null="true" />
+        </many-to-one>
+        <many-to-one name="imageData" class="POJOs.ImageData" fetch="select">
+            <column name="image_data_idimage_data" />
+        </many-to-one>
+        <many-to-one name="city" class="POJOs.City" fetch="select">
+            <column name="city_idcity" not-null="true" />
+        </many-to-one>
+        <property name="supplierName" type="string">
+            <column name="supplier_name" length="70" />
+        </property>
+        <property name="addressNo" type="string">
+            <column name="address_no" length="25" />
+        </property>
+        <property name="addressStreet" type="string">
+            <column name="address_street" length="45" />
+        </property>
+        <property name="addressStreet2" type="string">
+            <column name="address_street2" length="45" />
+        </property>
+        <property name="contactNumber" type="java.lang.Integer">
+            <column name="contact_number" />
+        </property>
+        <property name="contactNumber2" type="java.lang.Integer">
+            <column name="contact_number2" />
+        </property>
+        <property name="companyName" type="string">
+            <column name="company_name" length="50" />
+        </property>
+        <property name="companyRegNumber" type="string">
+            <column name="company_reg_number" length="45" />
+        </property>
+        <property name="supplierNic" type="string">
+            <column name="supplier_nic" length="16" />
+        </property>
+        <property name="ownerContactno" type="java.lang.Integer">
+            <column name="owner_contactno" />
+        </property>
+        <set name="orderses" table="orders" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="supplier_email" length="100" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.Orders" />
+        </set>
+        <set name="ratings" table="rating" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="supplier_email" length="100" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.Rating" />
+        </set>
+        <set name="supplierLogins" table="supplier_login" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="supplier_email" length="100" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.SupplierLogin" />
+        </set>
+        <set name="supplierBlacklists" table="supplier_blacklist" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="supplier_email" length="100" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.SupplierBlacklist" />
+        </set>
+        <set name="customerFeedbacks" table="customer_feedback" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="supplier_email" length="100" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.CustomerFeedback" />
+        </set>
+        <set name="supplierRecovers" table="supplier_recover" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="supplier_email" length="100" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.SupplierRecover" />
+        </set>
+        <set name="supplierFeedbacks" table="supplier_feedback" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="supplier_email" length="100" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.SupplierFeedback" />
+        </set>
+        <set name="products" table="product" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="supplier_email" length="100" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.Product" />
+        </set>
+    </class>
+</hibernate-mapping>

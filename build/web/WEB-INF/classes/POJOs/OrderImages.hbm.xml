@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2017 6:37:41 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOs.OrderImages" table="order_images" catalog="web_viva">
+        <id name="idorderImages" type="java.lang.Integer">
+            <column name="idorder_images" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="orders" class="POJOs.Orders" fetch="select">
+            <column name="orders_idorders" not-null="true" />
+        </many-to-one>
+        <property name="orderImagesPath" type="string">
+            <column name="order_images_path" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2017 6:37:41 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOs.CustomerLogin" table="customer_login" catalog="web_viva">
+        <id name="idcustomerLogin" type="java.lang.Integer">
+            <column name="idcustomer_login" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="customer" class="POJOs.Customer" fetch="select">
+            <column name="customer_email" length="100" not-null="true" />
+        </many-to-one>
+        <property name="password" type="string">
+            <column name="password" />
+        </property>
+    </class>
+</hibernate-mapping>

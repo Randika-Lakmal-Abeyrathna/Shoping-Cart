@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2017 6:37:41 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOs.Invoice" table="invoice" catalog="web_viva">
+        <id name="idinvoice" type="java.lang.Integer">
+            <column name="idinvoice" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="shipingDetails" class="POJOs.ShipingDetails" fetch="select">
+            <column name="shiping_details_idshiping_details" not-null="true" />
+        </many-to-one>
+        <many-to-one name="systemDate" class="POJOs.SystemDate" fetch="select">
+            <column name="system_date_idsystem_date" not-null="true" />
+        </many-to-one>
+        <many-to-one name="customer" class="POJOs.Customer" fetch="select">
+            <column name="customer_email" length="100" not-null="true" />
+        </many-to-one>
+        <property name="total" type="java.lang.Double">
+            <column name="total" precision="22" scale="0" />
+        </property>
+        <property name="invoiceNo" type="string">
+            <column name="invoice_no" length="45" />
+        </property>
+        <property name="billCount" type="java.lang.Integer">
+            <column name="bill_count" />
+        </property>
+        <property name="totalAmount" type="java.lang.Double">
+            <column name="total_amount" precision="22" scale="0" />
+        </property>
+        <property name="shippingCost" type="java.lang.Double">
+            <column name="shipping_cost" precision="22" scale="0" />
+        </property>
+        <property name="paymentType" type="string">
+            <column name="payment_Type" length="45" />
+        </property>
+        <set name="delivers" table="deliver" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="invoice_idinvoice" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.Deliver" />
+        </set>
+        <set name="invoiceItemses" table="invoice_items" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="invoice_idinvoice" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.InvoiceItems" />
+        </set>
+    </class>
+</hibernate-mapping>
